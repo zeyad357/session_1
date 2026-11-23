@@ -1,0 +1,11 @@
+num_of_team_members=int(input("enter the number of team members :"))
+num_of_months=int(input("enter the numer of months the project will take : "))
+monthly_salary=float(input("enter the monthly salary :"))
+total_cloud_cost=float(input("enter the Total cloud cost for the whole project :"))
+
+Salary_cost = num_of_team_members*num_of_months*monthly_salary
+sub_total=Salary_cost + total_cloud_cost
+vat=sub_total*0.14
+Total=sub_total+vat
+
+print(f"Total cost is {Salary_cost:.2f} ")
