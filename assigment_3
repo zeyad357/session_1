@@ -1,0 +1,109 @@
+customers = [
+"Ahmed", "Sara", "Omar", "Mona",
+"Ali", "Nour", "Youssef", "Hana",
+"Khaled", "Mariam", "Hassan", "Laila"]
+
+scores = [
+91, 45, 78, 66, 88, 30,
+72, 95, 51, 60, 84, 39]
+
+high=[]
+medium=[]
+low=[]
+num_high_level=0
+num_medium_level=0
+num_low_level=0
+sum=0
+num=0
+ 
+for c , s in zip(customers,scores):
+    sum+=s
+    num+=1
+    if s<=100 and s>=85:
+        num_high_level+=1
+        high.append([c,s,"high level"])
+    elif s<=84 and s>=60:
+        num_medium_level+=1
+        medium.append([c,s,"medium level"])
+    else :
+        num_low_level+=1
+        low.append([c,s,"low level"])
+
+print("number of high level =",num_high_level)
+print("number of medium level =",num_medium_level)
+print("number of low level =",num_low_level)
+print("average risk of cusomers =",sum/num)
+
+the_best_score=scores[0]
+the_worst_score=scores[0]
+for c , s in zip(customers,scores):
+    if s>the_best_score:
+        the_best_score=s
+        the_best_customer=c
+    if s<the_worst_score:
+            the_worst_score=s
+            the_worst_customer=c 
+
+print(f"the best customer is {the_best_customer} and has score = {the_best_score}") 
+print(f"the worst customer is {the_worst_customer} and has score = {the_worst_score}")             
+
+choice=None
+while True :
+    print("MENU:")
+    print("1)Show All Customers")
+    print("2)Search For a Customer")
+    print("0)Exit")
+
+    choice=int(input("enter your choice 0/1/2 :"))
+    if choice==1:
+        x=0
+        y=0
+        z=0
+        print("customers","scores","risk")
+        for c , s in zip(customers,scores):
+            if s<=100 and s>=85:
+                print(high[x][0],high[x][1],high[x][2])
+                x+=1
+            elif s<=84 and s>=60:
+                print(medium[y][0],medium[x][1],medium[x][2])
+                y+=1
+            else :
+                print(low[z][0],low[x][1],low[x][2])
+                z+=1
+    elif choice ==2 :
+        a=0
+        s=0
+        d=0
+        found=False
+        name_customer=input("enter a name customer :")
+        while True:
+            if a==len(high):
+                break
+            if name_customer==high[a][0]:
+                print(high[a][0],high[a][1],high[a][2])
+                found=True
+                break
+            elif name_customer==medium[s][0]:
+                print(medium[s][0],medium[s][1],medium[s][2])
+                found=True
+                break
+            elif name_customer==low[d][0]:
+                print(low[d][0],low[d][1],low[d][2])
+                found=True
+                break
+            a+=1
+            s+=1
+            d+=1
+        if found==False:
+            print("customer not found") 
+    elif choice==0:
+        print("Good Bye")
+        break
+    else:
+        print("invalid choice")         
+
+
+
+
+
+
